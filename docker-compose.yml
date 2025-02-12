@@ -1,0 +1,42 @@
+services:
+  navigator_db:
+    image: postgres:14.12
+    container_name: navigator_db
+    environment:
+      POSTGRES_USER: navigator
+      POSTGRES_PASSWORD: navigator
+      POSTGRES_DB: navigator
+    ports:
+      - 5432:5432
+    volumes:
+      - navigator_postgres_data:/var/lib/postgresql/data
+      - ./sql-init:/docker-entrypoint-initdb.d
+
+  documents_db:
+    image: postgres:14.12
+    container_name: documents_db
+    environment:
+      POSTGRES_USER: documents
+      POSTGRES_PASSWORD: documents
+      POSTGRES_DB: documents
+    ports:
+      - 5433:5432
+    volumes:
+      - documents_postgres_data:/var/lib/postgresql/data
+
+  strapi_db:
+    image: postgres:14.12
+    container_name: strapi_db
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+      POSTGRES_DB: strapi
+    ports:
+      - 5434:5432
+    volumes:
+      - strapi_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  navigator_postgres_data:
+  documents_postgres_data:
+  strapi_postgres_data:

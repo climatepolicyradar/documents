@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_identifiers_identifiers",
+  "info": {
+    "displayName": "Identifiers",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "navigator-admin"
+      ]
+    }
+  }
+}
